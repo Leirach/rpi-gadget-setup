@@ -38,3 +38,13 @@ WIP as well
 - Only tested on Raspberry Pi 4B running 64 bit [IMAGE NAME HERE]
 - USB power output may not be enough, try using a USB-C port or a USB 3.0 cable
 - You can throttling and voltage issues with this script [LINK TO SCRIPT HERE PLS]
+
+## Notes for getting this to work in Armbian/orangepizero
+- /boot/config.txt file has a different name armbianEnv.txt ?
+- /etc/modules/ only needs to load libcomposite
+- had to mkdir /etc/systemd/resolved.conf.d && nano noresolved.conf - to make dnsmasq work
+```
+[Resolve]
+DNSStubListener=no
+```
+- I'm not sure if I need NetworkManager for brctl but if it is not conflicting I would just keep it running
