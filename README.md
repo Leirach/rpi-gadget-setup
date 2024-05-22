@@ -48,3 +48,8 @@ WIP as well
 DNSStubListener=no
 ```
 - I'm not sure if I need NetworkManager for brctl but if it is not conflicting I would just keep it running
+- Make sure usb gadget service runs before network (to establish "physical" connection for br0)
+```
+Before=network-pre.target
+Wants=network-pre.target
+```
